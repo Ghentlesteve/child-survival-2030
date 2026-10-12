@@ -1,0 +1,26 @@
+table years
+	lineageTag: f019e8cc-eb08-427c-a440-f0677b19fff7
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 235a9497-9842-4d32-9d24-a7d22e70091f
+		summarizeBy: none
+		sourceColumn: year
+
+	column period
+		dataType: string
+		lineageTag: cefee1b9-f9ef-4235-ab13-6e236f8bfb44
+		summarizeBy: none
+		sourceColumn: period
+
+	partition years = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolder & "years.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					Typed = Table.TransformColumnTypes(Promoted, {{"year", Int64.Type}, {"period", type text}}, "en-US")
+				in
+					Typed
+

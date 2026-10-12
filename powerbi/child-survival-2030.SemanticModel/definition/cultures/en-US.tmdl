@@ -1,0 +1,420 @@
+cultureInfo en-US
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "areas.area_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "areas",
+			          "ConceptualProperty": "area_name"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Country": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "progress.when_target_reached": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "progress",
+			          "ConceptualProperty": "When Target Reached"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target reached at current pace": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "progress.speedup_needed": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "progress",
+			          "ConceptualProperty": "Speed-up Needed"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Speed-up needed": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "progress.target_line": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "progress",
+			          "ConceptualProperty": "Target Line"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SDG target": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "progress.base_value_2015": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "progress",
+			          "ConceptualProperty": "Base Value 2015"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2015": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "progress.latest_rate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "progress",
+			          "ConceptualProperty": "Latest Rate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Latest": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "progress.arr_achieved": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "progress",
+			          "ConceptualProperty": "ARR Achieved"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Yearly reduction since 2015": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "progress.arr_required": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "progress",
+			          "ConceptualProperty": "ARR Required"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Yearly reduction needed": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "progress.crisis_note": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "progress",
+			          "ConceptualProperty": "Crisis Note"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Note": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "progress.path_at_current_pace": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "progress",
+			          "ConceptualProperty": "Path at Current Pace"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "At current pace": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "progress.path_at_chosen_pace": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "progress",
+			          "ConceptualProperty": "Path at Chosen Pace"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "At chosen pace": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "progress.path_at_peer_pace": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "progress",
+			          "ConceptualProperty": "Path at Peer Pace"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "At peer's pace": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "progress.path_at_required_pace": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "progress",
+			          "ConceptualProperty": "Path at Required Pace"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Pace needed for 2030": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "estimates.estimate": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "estimates",
+			          "ConceptualProperty": "Estimate"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Estimate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "UN estimate": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "estimates.lower_bound": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "estimates",
+			          "ConceptualProperty": "Lower Bound"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Lower bound": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "estimates.upper_bound": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "estimates",
+			          "ConceptualProperty": "Upper Bound"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Upper bound": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "estimates.sdg_target": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "estimates",
+			          "ConceptualProperty": "SDG Target"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "indicators.indicator": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "indicators",
+			          "ConceptualProperty": "indicator"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Indicator": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "progress.progress_status": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "progress",
+			          "ConceptualProperty": "Progress Status"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Status": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

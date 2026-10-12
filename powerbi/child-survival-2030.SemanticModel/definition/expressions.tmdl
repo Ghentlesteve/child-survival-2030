@@ -1,0 +1,5 @@
+expression DataFolder = "C:\Users\Kwenev Steve\Documents\Web\Advanced Dashboards\child-survival-2030\data\clean\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 9fd504a6-576b-4779-bafc-6dcc53cf8fe8
+
+	annotation PBI_ResultType = Text
+

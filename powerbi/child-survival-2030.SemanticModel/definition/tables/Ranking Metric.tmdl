@@ -1,0 +1,40 @@
+table 'Ranking Metric'
+	lineageTag: 584c6736-a90d-4587-b714-271bdda33561
+
+	column 'Ranking Metric'
+		dataType: string
+		lineageTag: b3e0e4b3-a397-4238-a4f0-e12996e9761e
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Ranking Metric Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Ranking Metric Fields'
+
+	column 'Ranking Metric Fields'
+		dataType: string
+		isHidden
+		lineageTag: 7958a5c6-179d-4b25-bb86-b070f0a7dc8e
+		summarizeBy: none
+		sourceColumn: [Value2]
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+	column 'Ranking Metric Order'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4f6c0157-e766-4ee2-b24c-8f1c52d4a8ea
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+	partition 'Ranking Metric' = calculated
+		mode: import
+		source = {("Latest rate", NAMEOF('progress'[Latest Rate]), 0), ("Change since 2015", NAMEOF('progress'[Change Since 2015]), 1), ("Yearly reduction achieved", NAMEOF('progress'[ARR Achieved]), 2), ("Yearly reduction needed", NAMEOF('progress'[ARR Required]), 3), ("Speed-up needed", NAMEOF('progress'[Speed-up Needed]), 4), ("Gap to target", NAMEOF('progress'[Gap to Target]), 5), ("Deaths above target", NAMEOF('progress'[Deaths Above Target]), 6)}
+
+	annotation PBI_Id = 52aea143eb8641d68e76495dd76662f7
+

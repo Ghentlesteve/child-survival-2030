@@ -1,0 +1,213 @@
+area_code,area_name,area_type,wb_region,income_group,lending_category,is_country,sort_order
+WORLD,World,World,,,,False,0.0
+UNICEF_EAP,East Asia and Pacific,Region,,,,False,10.0
+UNICEF_ECA,Europe and Central Asia,Region,,,,False,10.0
+UNICEF_LAC,Latin America and the Caribbean,Region,,,,False,10.0
+UNICEF_MENA,Middle East and North Africa,Region,,,,False,10.0
+UNICEF_NA,North America,Region,,,,False,10.0
+UNICEF_SA,South Asia,Region,,,,False,10.0
+UNICEF_SSA,Sub-Saharan Africa,Region,,,,False,10.0
+WB_HI,High income,Income group,,,,False,20.0
+WB_LI,Low income,Income group,,,,False,20.0
+WB_LMI,Lower middle income,Income group,,,,False,20.0
+WB_UMI,Upper middle income,Income group,,,,False,20.0
+AFG,Afghanistan,Country,"Middle East, North Africa, Afghanistan & Pakistan",Low income,IDA,True,100.0
+ALB,Albania,Country,Europe & Central Asia,Upper middle income,IBRD,True,100.0
+DZA,Algeria,Country,"Middle East, North Africa, Afghanistan & Pakistan",Upper middle income,IBRD,True,100.0
+AND,Andorra,Country,Europe & Central Asia,High income,,True,100.0
+AGO,Angola,Country,Sub-Saharan Africa,Lower middle income,IBRD,True,100.0
+AIA,Anguilla,Country,Not classified by the World Bank,Not classified,,True,100.0
+ATG,Antigua and Barbuda,Country,Latin America & Caribbean,High income,IBRD,True,100.0
+ARG,Argentina,Country,Latin America & Caribbean,Upper middle income,IBRD,True,100.0
+ARM,Armenia,Country,Europe & Central Asia,Upper middle income,IBRD,True,100.0
+AUS,Australia,Country,East Asia & Pacific,High income,,True,100.0
+AUT,Austria,Country,Europe & Central Asia,High income,,True,100.0
+AZE,Azerbaijan,Country,Europe & Central Asia,Upper middle income,IBRD,True,100.0
+BHS,Bahamas,Country,Latin America & Caribbean,High income,,True,100.0
+BHR,Bahrain,Country,"Middle East, North Africa, Afghanistan & Pakistan",High income,,True,100.0
+BGD,Bangladesh,Country,South Asia,Lower middle income,IDA,True,100.0
+BRB,Barbados,Country,Latin America & Caribbean,High income,IBRD,True,100.0
+BLR,Belarus,Country,Europe & Central Asia,Upper middle income,IBRD,True,100.0
+BEL,Belgium,Country,Europe & Central Asia,High income,,True,100.0
+BLZ,Belize,Country,Latin America & Caribbean,Upper middle income,Blend,True,100.0
+BEN,Benin,Country,Sub-Saharan Africa,Lower middle income,IDA,True,100.0
+BTN,Bhutan,Country,South Asia,Lower middle income,IDA,True,100.0
+BOL,Bolivia (Plurinational State of),Country,Latin America & Caribbean,Lower middle income,IBRD,True,100.0
+BIH,Bosnia and Herzegovina,Country,Europe & Central Asia,Upper middle income,IBRD,True,100.0
+BWA,Botswana,Country,Sub-Saharan Africa,Upper middle income,IBRD,True,100.0
+BRA,Brazil,Country,Latin America & Caribbean,Upper middle income,IBRD,True,100.0
+VGB,British Virgin Islands,Country,Latin America & Caribbean,High income,,True,100.0
+BRN,Brunei Darussalam,Country,East Asia & Pacific,High income,,True,100.0
+BGR,Bulgaria,Country,Europe & Central Asia,High income,IBRD,True,100.0
+BFA,Burkina Faso,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+BDI,Burundi,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+CPV,Cabo Verde,Country,Sub-Saharan Africa,Upper middle income,Blend,True,100.0
+KHM,Cambodia,Country,East Asia & Pacific,Lower middle income,IDA,True,100.0
+CMR,Cameroon,Country,Sub-Saharan Africa,Lower middle income,Blend,True,100.0
+CAN,Canada,Country,North America,High income,,True,100.0
+CAF,Central African Republic,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+TCD,Chad,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+CHL,Chile,Country,Latin America & Caribbean,High income,IBRD,True,100.0
+CHN,China,Country,East Asia & Pacific,Upper middle income,IBRD,True,100.0
+COL,Colombia,Country,Latin America & Caribbean,Upper middle income,IBRD,True,100.0
+COM,Comoros,Country,Sub-Saharan Africa,Lower middle income,IDA,True,100.0
+COG,Congo,Country,Sub-Saharan Africa,Lower middle income,Blend,True,100.0
+COK,Cook Islands,Country,Not classified by the World Bank,Not classified,,True,100.0
+CRI,Costa Rica,Country,Latin America & Caribbean,High income,IBRD,True,100.0
+HRV,Croatia,Country,Europe & Central Asia,High income,IBRD,True,100.0
+CUB,Cuba,Country,Latin America & Caribbean,Upper middle income,,True,100.0
+CYP,Cyprus,Country,Europe & Central Asia,High income,,True,100.0
+CZE,Czechia,Country,Europe & Central Asia,High income,,True,100.0
+CIV,Côte d'Ivoire,Country,Sub-Saharan Africa,Lower middle income,Blend,True,100.0
+PRK,Democratic People's Republic of Korea,Country,East Asia & Pacific,Low income,,True,100.0
+COD,Democratic Republic of the Congo,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+DNK,Denmark,Country,Europe & Central Asia,High income,,True,100.0
+DJI,Djibouti,Country,"Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,IDA,True,100.0
+DMA,Dominica,Country,Latin America & Caribbean,Upper middle income,Blend,True,100.0
+DOM,Dominican Republic,Country,Latin America & Caribbean,Upper middle income,IBRD,True,100.0
+ECU,Ecuador,Country,Latin America & Caribbean,Upper middle income,IBRD,True,100.0
+EGY,Egypt,Country,"Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,IBRD,True,100.0
+SLV,El Salvador,Country,Latin America & Caribbean,Upper middle income,IBRD,True,100.0
+GNQ,Equatorial Guinea,Country,Sub-Saharan Africa,Upper middle income,IBRD,True,100.0
+ERI,Eritrea,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+EST,Estonia,Country,Europe & Central Asia,High income,,True,100.0
+SWZ,Eswatini,Country,Sub-Saharan Africa,Lower middle income,Blend,True,100.0
+ETH,Ethiopia,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+FJI,Fiji,Country,East Asia & Pacific,Upper middle income,Blend,True,100.0
+FIN,Finland,Country,Europe & Central Asia,High income,,True,100.0
+FRA,France,Country,Europe & Central Asia,High income,,True,100.0
+GAB,Gabon,Country,Sub-Saharan Africa,Upper middle income,IBRD,True,100.0
+GMB,Gambia,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+GEO,Georgia,Country,Europe & Central Asia,Upper middle income,IBRD,True,100.0
+DEU,Germany,Country,Europe & Central Asia,High income,,True,100.0
+GHA,Ghana,Country,Sub-Saharan Africa,Lower middle income,IDA,True,100.0
+GRC,Greece,Country,Europe & Central Asia,High income,,True,100.0
+GRD,Grenada,Country,Latin America & Caribbean,Upper middle income,Blend,True,100.0
+GTM,Guatemala,Country,Latin America & Caribbean,Upper middle income,IBRD,True,100.0
+GIN,Guinea,Country,Sub-Saharan Africa,Lower middle income,IDA,True,100.0
+GNB,Guinea-Bissau,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+GUY,Guyana,Country,Latin America & Caribbean,High income,IDA,True,100.0
+HTI,Haiti,Country,Latin America & Caribbean,Lower middle income,IDA,True,100.0
+HND,Honduras,Country,Latin America & Caribbean,Lower middle income,IDA,True,100.0
+HUN,Hungary,Country,Europe & Central Asia,High income,,True,100.0
+ISL,Iceland,Country,Europe & Central Asia,High income,,True,100.0
+IND,India,Country,South Asia,Lower middle income,IBRD,True,100.0
+IDN,Indonesia,Country,East Asia & Pacific,Upper middle income,IBRD,True,100.0
+IRN,Iran (Islamic Republic of),Country,"Middle East, North Africa, Afghanistan & Pakistan",Upper middle income,IBRD,True,100.0
+IRQ,Iraq,Country,"Middle East, North Africa, Afghanistan & Pakistan",Upper middle income,IBRD,True,100.0
+IRL,Ireland,Country,Europe & Central Asia,High income,,True,100.0
+ISR,Israel,Country,"Middle East, North Africa, Afghanistan & Pakistan",High income,,True,100.0
+ITA,Italy,Country,Europe & Central Asia,High income,,True,100.0
+JAM,Jamaica,Country,Latin America & Caribbean,Upper middle income,IBRD,True,100.0
+JPN,Japan,Country,East Asia & Pacific,High income,,True,100.0
+JOR,Jordan,Country,"Middle East, North Africa, Afghanistan & Pakistan",Upper middle income,IBRD,True,100.0
+KAZ,Kazakhstan,Country,Europe & Central Asia,Upper middle income,IBRD,True,100.0
+KEN,Kenya,Country,Sub-Saharan Africa,Lower middle income,Blend,True,100.0
+KIR,Kiribati,Country,East Asia & Pacific,Lower middle income,IDA,True,100.0
+XKX,Kosovo (UNSCR 1244),Country,Europe & Central Asia,Upper middle income,IDA,True,100.0
+KWT,Kuwait,Country,"Middle East, North Africa, Afghanistan & Pakistan",High income,,True,100.0
+KGZ,Kyrgyzstan,Country,Europe & Central Asia,Lower middle income,IDA,True,100.0
+LAO,Lao People's Democratic Republic,Country,East Asia & Pacific,Lower middle income,IDA,True,100.0
+LVA,Latvia,Country,Europe & Central Asia,High income,,True,100.0
+LBN,Lebanon,Country,"Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,IBRD,True,100.0
+LSO,Lesotho,Country,Sub-Saharan Africa,Lower middle income,IDA,True,100.0
+LBR,Liberia,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+LBY,Libya,Country,"Middle East, North Africa, Afghanistan & Pakistan",Upper middle income,IBRD,True,100.0
+LTU,Lithuania,Country,Europe & Central Asia,High income,,True,100.0
+LUX,Luxembourg,Country,Europe & Central Asia,High income,,True,100.0
+MDG,Madagascar,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+MWI,Malawi,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+MYS,Malaysia,Country,East Asia & Pacific,Upper middle income,IBRD,True,100.0
+MDV,Maldives,Country,South Asia,Upper middle income,IDA,True,100.0
+MLI,Mali,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+MLT,Malta,Country,"Middle East, North Africa, Afghanistan & Pakistan",High income,,True,100.0
+MHL,Marshall Islands,Country,East Asia & Pacific,Upper middle income,IDA,True,100.0
+MRT,Mauritania,Country,Sub-Saharan Africa,Lower middle income,IDA,True,100.0
+MUS,Mauritius,Country,Sub-Saharan Africa,Upper middle income,IBRD,True,100.0
+MEX,Mexico,Country,Latin America & Caribbean,Upper middle income,IBRD,True,100.0
+FSM,Micronesia (Federated States of),Country,East Asia & Pacific,Upper middle income,IDA,True,100.0
+MCO,Monaco,Country,Europe & Central Asia,High income,,True,100.0
+MNG,Mongolia,Country,East Asia & Pacific,Upper middle income,IBRD,True,100.0
+MNE,Montenegro,Country,Europe & Central Asia,Upper middle income,IBRD,True,100.0
+MSR,Montserrat,Country,Not classified by the World Bank,Not classified,,True,100.0
+MAR,Morocco,Country,"Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,IBRD,True,100.0
+MOZ,Mozambique,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+MMR,Myanmar,Country,East Asia & Pacific,Lower middle income,IDA,True,100.0
+NAM,Namibia,Country,Sub-Saharan Africa,Lower middle income,IBRD,True,100.0
+NRU,Nauru,Country,East Asia & Pacific,High income,IBRD,True,100.0
+NPL,Nepal,Country,South Asia,Lower middle income,IDA,True,100.0
+NLD,Netherlands (Kingdom of the),Country,Europe & Central Asia,High income,,True,100.0
+NZL,New Zealand,Country,East Asia & Pacific,High income,,True,100.0
+NIC,Nicaragua,Country,Latin America & Caribbean,Lower middle income,IDA,True,100.0
+NER,Niger,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+NGA,Nigeria,Country,Sub-Saharan Africa,Lower middle income,Blend,True,100.0
+NIU,Niue,Country,Not classified by the World Bank,Not classified,,True,100.0
+MKD,North Macedonia,Country,Europe & Central Asia,Upper middle income,IBRD,True,100.0
+NOR,Norway,Country,Europe & Central Asia,High income,,True,100.0
+OMN,Oman,Country,"Middle East, North Africa, Afghanistan & Pakistan",High income,,True,100.0
+PAK,Pakistan,Country,"Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,Blend,True,100.0
+PLW,Palau,Country,East Asia & Pacific,High income,IBRD,True,100.0
+PAN,Panama,Country,Latin America & Caribbean,High income,IBRD,True,100.0
+PNG,Papua New Guinea,Country,East Asia & Pacific,Lower middle income,Blend,True,100.0
+PRY,Paraguay,Country,Latin America & Caribbean,Upper middle income,IBRD,True,100.0
+PER,Peru,Country,Latin America & Caribbean,Upper middle income,IBRD,True,100.0
+PHL,Philippines,Country,East Asia & Pacific,Upper middle income,IBRD,True,100.0
+POL,Poland,Country,Europe & Central Asia,High income,IBRD,True,100.0
+PRT,Portugal,Country,Europe & Central Asia,High income,,True,100.0
+QAT,Qatar,Country,"Middle East, North Africa, Afghanistan & Pakistan",High income,,True,100.0
+KOR,Republic of Korea,Country,East Asia & Pacific,High income,,True,100.0
+MDA,Republic of Moldova,Country,Europe & Central Asia,Upper middle income,IBRD,True,100.0
+ROU,Romania,Country,Europe & Central Asia,High income,IBRD,True,100.0
+RUS,Russian Federation,Country,Europe & Central Asia,High income,IBRD,True,100.0
+RWA,Rwanda,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+KNA,Saint Kitts and Nevis,Country,Latin America & Caribbean,High income,IBRD,True,100.0
+LCA,Saint Lucia,Country,Latin America & Caribbean,Upper middle income,Blend,True,100.0
+VCT,Saint Vincent and the Grenadines,Country,Latin America & Caribbean,Upper middle income,Blend,True,100.0
+WSM,Samoa,Country,East Asia & Pacific,Upper middle income,IDA,True,100.0
+SMR,San Marino,Country,Europe & Central Asia,High income,,True,100.0
+STP,Sao Tome and Principe,Country,Sub-Saharan Africa,Lower middle income,IDA,True,100.0
+SAU,Saudi Arabia,Country,"Middle East, North Africa, Afghanistan & Pakistan",High income,,True,100.0
+SEN,Senegal,Country,Sub-Saharan Africa,Lower middle income,IDA,True,100.0
+SRB,Serbia,Country,Europe & Central Asia,Upper middle income,IBRD,True,100.0
+SYC,Seychelles,Country,Sub-Saharan Africa,High income,IBRD,True,100.0
+SLE,Sierra Leone,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+SGP,Singapore,Country,East Asia & Pacific,High income,,True,100.0
+SVK,Slovakia,Country,Europe & Central Asia,High income,,True,100.0
+SVN,Slovenia,Country,Europe & Central Asia,High income,,True,100.0
+SLB,Solomon Islands,Country,East Asia & Pacific,Lower middle income,IDA,True,100.0
+SOM,Somalia,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+ZAF,South Africa,Country,Sub-Saharan Africa,Upper middle income,IBRD,True,100.0
+SSD,South Sudan,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+ESP,Spain,Country,Europe & Central Asia,High income,,True,100.0
+LKA,Sri Lanka,Country,South Asia,Upper middle income,IDA,True,100.0
+PSE,State of Palestine,Country,"Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,,True,100.0
+SDN,Sudan,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+SUR,Suriname,Country,Latin America & Caribbean,Upper middle income,Blend,True,100.0
+SWE,Sweden,Country,Europe & Central Asia,High income,,True,100.0
+CHE,Switzerland,Country,Europe & Central Asia,High income,,True,100.0
+SYR,Syrian Arab Republic,Country,"Middle East, North Africa, Afghanistan & Pakistan",Low income,IDA,True,100.0
+TJK,Tajikistan,Country,Europe & Central Asia,Lower middle income,IDA,True,100.0
+THA,Thailand,Country,East Asia & Pacific,Upper middle income,IBRD,True,100.0
+TLS,Timor-Leste,Country,East Asia & Pacific,Lower middle income,Blend,True,100.0
+TGO,Togo,Country,Sub-Saharan Africa,Lower middle income,IDA,True,100.0
+TON,Tonga,Country,East Asia & Pacific,Upper middle income,IDA,True,100.0
+TTO,Trinidad and Tobago,Country,Latin America & Caribbean,High income,IBRD,True,100.0
+TUN,Tunisia,Country,"Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,IBRD,True,100.0
+TKM,Turkmenistan,Country,Europe & Central Asia,Upper middle income,IBRD,True,100.0
+TCA,Turks and Caicos Islands,Country,Latin America & Caribbean,High income,,True,100.0
+TUV,Tuvalu,Country,East Asia & Pacific,Upper middle income,IDA,True,100.0
+TUR,Türkiye,Country,Europe & Central Asia,Upper middle income,IBRD,True,100.0
+UGA,Uganda,Country,Sub-Saharan Africa,Low income,IDA,True,100.0
+UKR,Ukraine,Country,Europe & Central Asia,Upper middle income,IBRD,True,100.0
+ARE,United Arab Emirates,Country,"Middle East, North Africa, Afghanistan & Pakistan",High income,,True,100.0
+GBR,United Kingdom,Country,Europe & Central Asia,High income,,True,100.0
+TZA,United Republic of Tanzania,Country,Sub-Saharan Africa,Lower middle income,IDA,True,100.0
+USA,United States,Country,North America,High income,,True,100.0
+URY,Uruguay,Country,Latin America & Caribbean,High income,IBRD,True,100.0
+UZB,Uzbekistan,Country,Europe & Central Asia,Lower middle income,Blend,True,100.0
+VUT,Vanuatu,Country,East Asia & Pacific,Lower middle income,IDA,True,100.0
+VEN,Venezuela (Bolivarian Republic of),Country,Latin America & Caribbean,Lower middle income,IBRD,True,100.0
+VNM,Viet Nam,Country,East Asia & Pacific,Upper middle income,IBRD,True,100.0
+YEM,Yemen,Country,"Middle East, North Africa, Afghanistan & Pakistan",Low income,IDA,True,100.0
+ZMB,Zambia,Country,Sub-Saharan Africa,Lower middle income,IDA,True,100.0
+ZWE,Zimbabwe,Country,Sub-Saharan Africa,Lower middle income,Blend,True,100.0

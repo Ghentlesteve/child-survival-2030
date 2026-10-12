@@ -1,0 +1,10 @@
+indicator_code,indicator,unit,per,sdg_target,target_label,secondary_threshold,sort_order,has_target,latest_year,has_uncertainty
+CME_MRY0T4,Under-5 mortality rate,"deaths per 1,000 live births",1000,25.0,SDG 3.2: 25 or less by 2030,,1,True,2024,True
+CME_MRM0,Neonatal mortality rate,"deaths per 1,000 live births",1000,12.0,SDG 3.2: 12 or less by 2030,,2,True,2024,True
+MNCH_MMR,Maternal mortality ratio,"deaths per 100,000 live births",100000,70.0,SDG 3.1: global ratio below 70 by 2030,140.0,3,True,2023,False
+CME_MRY0,Infant mortality rate,"deaths per 1,000 live births",1000,,No SDG target,,4,False,2024,True
+CME_SBR,Stillbirth rate,"stillbirths per 1,000 total births",1000,12.0,Every Newborn Action Plan: 12 or less by 2030,,5,True,2023,True
+CME_TMY0T4,Under-5 deaths,deaths,1,,,,6,False,2024,True
+CME_TMM0,Neonatal deaths,deaths,1,,,,7,False,2024,True
+DM_BRTS,Births,live births,1,,,,8,False,2023,False
+DM_POP_TOT,Population,people,1,,,,9,False,2023,False

@@ -1,0 +1,14 @@
+table 'Scenario ARR'
+	lineageTag: 5b43cf33-f0d0-49a3-82b6-b78f874396b1
+
+	column 'Scenario ARR'
+		dataType: double
+		formatString: 0.0\%
+		lineageTag: 42cd7ac3-39e3-48d9-9975-6b360599724d
+		summarizeBy: none
+		sourceColumn: [Scenario ARR]
+
+	partition 'Scenario ARR' = calculated
+		mode: import
+		source = SELECTCOLUMNS ( GENERATESERIES ( 0, 30, 0.5 ), "Scenario ARR", [Value] )
+

@@ -1,0 +1,20 @@
+relationship de122683-f786-420d-b876-47d03a5f6c9f
+	fromColumn: estimates.area_code
+	toColumn: areas.area_code
+
+relationship 190967e0-2bac-47f2-b307-6fdd41cda624
+	fromColumn: estimates.indicator_code
+	toColumn: indicators.indicator_code
+
+relationship 8ef2b697-1b04-4eff-b2ab-d52a18fd1d2a
+	fromColumn: estimates.year
+	toColumn: years.year
+
+relationship 9cf4cf16-5d43-4fb4-a9b1-c4e93774120a
+	fromColumn: progress.area_code
+	toColumn: areas.area_code
+
+relationship 70c56b8a-a1d2-4bcc-b27b-2e5b44204d4f
+	fromColumn: progress.indicator_code
+	toColumn: indicators.indicator_code
+

@@ -1,0 +1,20 @@
+table 'Peer Country'
+	lineageTag: d3756548-a485-4f13-ac6e-597af73d7ee2
+
+	column 'Peer Country'
+		dataType: string
+		lineageTag: 5e093c2a-1ae4-4bb5-aa43-821ef4f96f38
+		summarizeBy: none
+		sourceColumn: [Peer Country]
+
+	column peer_code
+		dataType: string
+		isHidden
+		lineageTag: 5e2df0c1-584b-49f9-bbe2-68ff13f4c7ef
+		summarizeBy: none
+		sourceColumn: [peer_code]
+
+	partition 'Peer Country' = calculated
+		mode: import
+		source = SELECTCOLUMNS ( FILTER ( areas, areas[is_country] = TRUE () ), "Peer Country", areas[area_name], "peer_code", areas[area_code] )
+

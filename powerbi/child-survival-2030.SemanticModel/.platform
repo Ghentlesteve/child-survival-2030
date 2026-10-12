@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "child-survival-2030"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "98cf3cf0-3986-4231-897b-4706f5773063"
+  }
+}

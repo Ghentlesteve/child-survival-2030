@@ -1,0 +1,63 @@
+table areas
+	lineageTag: 3b5adb57-5a07-4860-9877-58f2737ad4bc
+
+	column area_code
+		dataType: string
+		lineageTag: 14585b3c-763a-4dfd-a823-8dad23e1e72d
+		summarizeBy: none
+		sourceColumn: area_code
+
+	column area_name
+		dataType: string
+		lineageTag: f37ee5a5-4229-41df-a60d-c653c60bfe14
+		summarizeBy: none
+		sourceColumn: area_name
+
+	column area_type
+		dataType: string
+		lineageTag: 3ee31d5e-89c3-4381-b2d8-948120c62c6a
+		summarizeBy: none
+		sourceColumn: area_type
+		sortByColumn: sort_order
+
+	column wb_region
+		dataType: string
+		lineageTag: 4d310970-07e7-4401-91b1-722cf75586af
+		summarizeBy: none
+		sourceColumn: wb_region
+
+	column income_group
+		dataType: string
+		lineageTag: 1df331a6-0c48-4867-8ea5-9c170ac8e3c4
+		summarizeBy: none
+		sourceColumn: income_group
+
+	column lending_category
+		dataType: string
+		lineageTag: 77c3f5c2-8c37-4c63-a7e5-8dbda620a709
+		summarizeBy: none
+		sourceColumn: lending_category
+
+	column is_country
+		dataType: boolean
+		lineageTag: 718f78f7-c7eb-4b42-8e49-aef46eceaf3c
+		summarizeBy: none
+		sourceColumn: is_country
+
+	column sort_order
+		dataType: double
+		isHidden
+		lineageTag: 61157608-3c67-4aff-a06e-636e06bd6a82
+		summarizeBy: none
+		sourceColumn: sort_order
+
+	partition areas = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolder & "areas.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					Typed = Table.TransformColumnTypes(Promoted, {{"area_code", type text}, {"area_name", type text}, {"area_type", type text}, {"wb_region", type text}, {"income_group", type text}, {"lending_category", type text}, {"is_country", type logical}, {"sort_order", type number}}, "en-US")
+				in
+					Typed
+

@@ -1,0 +1,285 @@
+table progress
+	lineageTag: 74f2e704-11fe-484b-8ca2-ddbbc41c954a
+
+	measure Countries = CALCULATE ( COUNTROWS ( progress ), areas[is_country] = TRUE () )
+		formatString: #,0
+		displayFolder: Progress
+		lineageTag: f6523deb-987e-4b1d-979d-3242b1d43279
+
+	measure 'Countries Off Track' = CALCULATE ( [Countries], progress[status] IN { "Acceleration needed", "No progress" } )
+		formatString: #,0
+		displayFolder: Progress
+		lineageTag: 4d6ddc06-cdba-44cb-8aa2-4d4b93c7208b
+
+	measure 'Countries Met or On Track' = CALCULATE ( [Countries], progress[status] IN { "Target met", "On track" } )
+		formatString: #,0
+		displayFolder: Progress
+		lineageTag: e09f9924-f93c-41b4-8ade-88dc448cb782
+
+	measure 'Share Off Track' = DIVIDE ( [Countries Off Track], [Countries] )
+		formatString: 0%
+		displayFolder: Progress
+		lineageTag: 0e3525be-23f1-4913-bd7b-c49240c32069
+
+	measure 'Progress Status' = SELECTEDVALUE ( progress[status] )
+		displayFolder: Progress
+		lineageTag: 540f18c0-a49b-4af8-957b-452bec3ef00c
+
+	measure 'When Target Reached' = SELECTEDVALUE ( progress[when_target_reached] )
+		displayFolder: Progress
+		lineageTag: 6f84b0ec-ec47-434f-bfd5-e2cae2d27ad2
+
+	measure 'Base Value 2015' = IF ( HASONEVALUE ( areas[area_code] ), MAX ( progress[base_value] ) )
+		formatString: #,0.0
+		displayFolder: Progress
+		lineageTag: 3b947347-7f97-479b-8091-e76859770504
+
+	measure 'Latest Rate' = IF ( HASONEVALUE ( areas[area_code] ), MAX ( progress[latest_value] ) )
+		formatString: #,0.0
+		displayFolder: Progress
+		lineageTag: 460e99f0-17a4-444f-b236-ef68625f750c
+
+	measure 'Change Since 2015' = DIVIDE ( [Latest Rate] - [Base Value 2015], [Base Value 2015] )
+		formatString: +0%;-0%;0%
+		displayFolder: Progress
+		lineageTag: 39302ead-592a-4bba-a7ce-a5e7f3b891bd
+
+	measure 'ARR Achieved' = IF ( HASONEVALUE ( areas[area_code] ), MAX ( progress[arr_achieved] ) )
+		formatString: 0.0%
+		displayFolder: Progress
+		lineageTag: ba93adcb-4dd5-4ffe-b55a-9e7675d9cafe
+
+	measure 'ARR Required' = IF ( HASONEVALUE ( areas[area_code] ), MAX ( progress[arr_required] ) )
+		formatString: 0.0%
+		displayFolder: Progress
+		lineageTag: adde7e8f-abce-477d-9947-2d09e78cc0a1
+
+	measure 'Speed-up Needed' = VAR a = [ARR Achieved] VAR r = [ARR Required] RETURN IF ( r > 0 && a > 0, DIVIDE ( r, a ) )
+		formatString: 0.0"x"
+		displayFolder: Progress
+		lineageTag: 12464a40-1a03-4861-9989-2ec48c96c963
+
+	measure 'Gap to Target' = IF ( HASONEVALUE ( areas[area_code] ), MAX ( progress[gap_to_target] ) )
+		formatString: #,0.0
+		displayFolder: Progress
+		lineageTag: 115fc45e-8676-4651-813c-3b8ab4cd0877
+
+	measure 'Projected 2030' = IF ( HASONEVALUE ( areas[area_code] ), MAX ( progress[projected_2030] ) )
+		formatString: #,0.0
+		displayFolder: Progress
+		lineageTag: 81f51643-a848-468b-a7f4-e3b1c6700020
+
+	measure 'Deaths Above Target' = CALCULATE ( SUM ( progress[excess_deaths_vs_target] ), areas[is_country] = TRUE () )
+		formatString: #,0
+		displayFolder: Progress
+		lineageTag: 7a4ac8b4-4c3c-4577-853d-eda1c2014fef
+
+	measure 'Crisis Note' = IF ( HASONEVALUE ( areas[area_code] ) && CALCULATE ( COUNTROWS ( progress ), progress[crisis_in_period] = TRUE () ) > 0, "Crisis years since 2015: progress figure less reliable" )
+		displayFolder: Progress
+		lineageTag: bb8de1bb-f459-4f8e-8c57-68f23a32600e
+
+	measure 'Status Colour' = SWITCH ( [Progress Status], "Target met", "#0CA30C", "On track", "#6DA7EC", "Acceleration needed", "#EC835A", "No progress", "#D03B3B" )
+		displayFolder: Progress
+		lineageTag: de2a0de0-4c3d-4c7a-a485-a9cd4293d196
+
+	measure 'Scenario ARR Value' = SELECTEDVALUE ( 'Scenario ARR'[Scenario ARR], 5 ) / 100
+		formatString: 0.0%
+		displayFolder: Scenario
+		lineageTag: c995856d-f859-41f3-8475-aa69422cd0f1
+
+	measure 'Peer ARR' = VAR p = SELECTEDVALUE ( 'Peer Country'[peer_code] ) RETURN IF ( NOT ISBLANK ( p ), CALCULATE ( MAX ( progress[arr_achieved] ), REMOVEFILTERS ( areas ), progress[area_code] = p ) )
+		formatString: 0.0%
+		displayFolder: Scenario
+		lineageTag: 4bb7e441-abad-416e-ade4-afea2151ee85
+
+	measure 'Path at Current Pace' = VAR y = MAX ( years[year] ) VAR ly = CALCULATE ( MAX ( progress[latest_year] ), REMOVEFILTERS ( years ) ) VAR lv = CALCULATE ( MAX ( progress[latest_value] ), REMOVEFILTERS ( years ) ) VAR a = CALCULATE ( MAX ( progress[arr_achieved] ), REMOVEFILTERS ( years ) ) RETURN IF ( HASONEVALUE ( areas[area_code] ) && y >= ly && NOT ISBLANK ( a ), lv * EXP ( - a * ( y - ly ) ) )
+		formatString: #,0.0
+		displayFolder: Scenario
+		lineageTag: 81011c68-c881-4181-831e-c06167922633
+
+	measure 'Path at Required Pace' = VAR y = MAX ( years[year] ) VAR ly = CALCULATE ( MAX ( progress[latest_year] ), REMOVEFILTERS ( years ) ) VAR lv = CALCULATE ( MAX ( progress[latest_value] ), REMOVEFILTERS ( years ) ) VAR a = CALCULATE ( MAX ( progress[arr_required] ), REMOVEFILTERS ( years ) ) RETURN IF ( HASONEVALUE ( areas[area_code] ) && y >= ly && NOT ISBLANK ( a ), lv * EXP ( - a * ( y - ly ) ) )
+		formatString: #,0.0
+		displayFolder: Scenario
+		lineageTag: 4370c8aa-5a99-41d6-8278-ef0e91f6045c
+
+	measure 'Path at Chosen Pace' = VAR y = MAX ( years[year] ) VAR ly = CALCULATE ( MAX ( progress[latest_year] ), REMOVEFILTERS ( years ) ) VAR lv = CALCULATE ( MAX ( progress[latest_value] ), REMOVEFILTERS ( years ) ) VAR a = [Scenario ARR Value] RETURN IF ( HASONEVALUE ( areas[area_code] ) && y >= ly && NOT ISBLANK ( a ), lv * EXP ( - a * ( y - ly ) ) )
+		formatString: #,0.0
+		displayFolder: Scenario
+		lineageTag: f5593537-01bf-4824-9c87-da1155f0d3ce
+
+	measure 'Path at Peer Pace' = VAR y = MAX ( years[year] ) VAR ly = CALCULATE ( MAX ( progress[latest_year] ), REMOVEFILTERS ( years ) ) VAR lv = CALCULATE ( MAX ( progress[latest_value] ), REMOVEFILTERS ( years ) ) VAR a = [Peer ARR] RETURN IF ( HASONEVALUE ( areas[area_code] ) && y >= ly && NOT ISBLANK ( a ), lv * EXP ( - a * ( y - ly ) ) )
+		formatString: #,0.0
+		displayFolder: Scenario
+		lineageTag: 8b91382a-5ad0-44ee-a309-590cc00764cd
+
+	measure 'Target Line' = VAR y = MAX ( years[year] ) RETURN IF ( y >= 2000, [SDG Target] )
+		formatString: #,0
+		displayFolder: Scenario
+		lineageTag: 1ec94a18-2c76-4471-bab2-ab8b56d3a087
+
+	measure 'Year Reached at Chosen Pace' = VAR ly = MAX ( progress[latest_year] ) VAR lv = MAX ( progress[latest_value] ) VAR t = MAX ( progress[target] ) VAR a = [Scenario ARR Value] RETURN IF ( HASONEVALUE ( areas[area_code] ), IF ( lv <= t, "Already met", IF ( a <= 0, "Not at this pace", VAR yr = ly + LN ( lv / t ) / a RETURN IF ( yr > 2100, "After 2100", FORMAT ( ROUNDUP ( yr, 0 ), "0" ) ) ) ) )
+		displayFolder: Scenario
+		lineageTag: 0adffb03-9eeb-4047-999b-078e6edf362f
+
+	measure 'Year Reached at Current Pace' = VAR ly = MAX ( progress[latest_year] ) VAR lv = MAX ( progress[latest_value] ) VAR t = MAX ( progress[target] ) VAR a = MAX ( progress[arr_achieved] ) RETURN IF ( HASONEVALUE ( areas[area_code] ), IF ( lv <= t, "Already met", IF ( a <= 0, "Not at this pace", VAR yr = ly + LN ( lv / t ) / a RETURN IF ( yr > 2100, "After 2100", FORMAT ( ROUNDUP ( yr, 0 ), "0" ) ) ) ) )
+		displayFolder: Scenario
+		lineageTag: 8759b6e4-d611-4df3-bdaf-0034e9c409ae
+
+	measure 'Year Reached at Peer Pace' = VAR ly = MAX ( progress[latest_year] ) VAR lv = MAX ( progress[latest_value] ) VAR t = MAX ( progress[target] ) VAR a = [Peer ARR] RETURN IF ( HASONEVALUE ( areas[area_code] ), IF ( lv <= t, "Already met", IF ( a <= 0, "Not at this pace", VAR yr = ly + LN ( lv / t ) / a RETURN IF ( yr > 2100, "After 2100", FORMAT ( ROUNDUP ( yr, 0 ), "0" ) ) ) ) )
+		displayFolder: Scenario
+		lineageTag: 7fcf6bc2-d5b8-4511-a4c0-5357f8a52144
+
+	measure 'Lives Saved by 2030 at Chosen Pace' = VAR ly = MAX ( progress[latest_year] ) VAR lv = MAX ( progress[latest_value] ) VAR ac = MAX ( progress[arr_achieved] ) VAR s = [Scenario ARR Value] VAR b = MAX ( progress[births_latest] ) VAR per = MAX ( indicators[per] ) RETURN IF ( HASONEVALUE ( areas[area_code] ) && HASONEVALUE ( indicators[indicator_code] ), SUMX ( FILTER ( ALL ( years[year] ), years[year] > ly && years[year] <= 2030 ), VAR k = years[year] - ly RETURN ( lv * EXP ( - ac * k ) - lv * EXP ( - s * k ) ) * b / per ) )
+		formatString: #,0
+		displayFolder: Scenario
+		lineageTag: fe817891-52e4-4c81-87ea-9ae085584f18
+
+	measure 'Scenario Title' = SELECTEDVALUE ( areas[area_name] ) & ": " & SELECTEDVALUE ( indicators[indicator] ) & " to 2030 at different rates of reduction"
+		displayFolder: Labels
+		lineageTag: 032c5e2e-ecce-457c-87f3-bb371f31a3c4
+
+	column area_code
+		dataType: string
+		isHidden
+		lineageTag: a11a7843-8525-4626-b218-c8046894810e
+		summarizeBy: none
+		sourceColumn: area_code
+
+	column indicator_code
+		dataType: string
+		isHidden
+		lineageTag: 283ec507-52fb-406a-b5c0-8edf757a65a4
+		summarizeBy: none
+		sourceColumn: indicator_code
+
+	column base_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d7a514c-9403-4135-985d-17f9f0de195d
+		summarizeBy: none
+		sourceColumn: base_year
+
+	column base_value
+		dataType: double
+		lineageTag: 911f3bbc-fdc5-4c69-a5e5-6d365ecb7b1d
+		summarizeBy: none
+		sourceColumn: base_value
+
+	column latest_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 3103eeb6-ddd5-4b66-9f03-9febd3550ba7
+		summarizeBy: none
+		sourceColumn: latest_year
+
+	column latest_value
+		dataType: double
+		lineageTag: 74ca6c69-6ba0-4868-8fbc-10eebea95803
+		summarizeBy: none
+		sourceColumn: latest_value
+
+	column latest_lower
+		dataType: double
+		lineageTag: 73f3a09c-fd63-4c55-9ae2-c5499feaa7dd
+		summarizeBy: none
+		sourceColumn: latest_lower
+
+	column latest_upper
+		dataType: double
+		lineageTag: b7c68621-6239-4fc4-b1fc-c1c05df5e847
+		summarizeBy: none
+		sourceColumn: latest_upper
+
+	column target
+		dataType: int64
+		lineageTag: f7c33624-a5d2-4714-8cf8-9db6f17db769
+		summarizeBy: none
+		sourceColumn: target
+
+	column gap_to_target
+		dataType: double
+		lineageTag: 85caa3ea-e5f1-4162-82dd-3b5d190f49b5
+		summarizeBy: none
+		sourceColumn: gap_to_target
+
+	column arr_achieved
+		dataType: double
+		formatString: 0.0%
+		lineageTag: da11604e-b795-4245-a4a8-fcb6f5bae209
+		summarizeBy: none
+		sourceColumn: arr_achieved
+
+	column arr_required
+		dataType: double
+		formatString: 0.0%
+		lineageTag: 4bae4665-e2d4-427c-979f-9a2e9b319047
+		summarizeBy: none
+		sourceColumn: arr_required
+
+	column status
+		dataType: string
+		lineageTag: d1bdd853-50d8-4eb6-ba74-9a67cca41ee6
+		summarizeBy: none
+		sourceColumn: status
+		sortByColumn: status_order
+
+	column status_order
+		dataType: int64
+		isHidden
+		lineageTag: b47865f5-7ae6-42cd-93b6-d2bd9213fa04
+		summarizeBy: none
+		sourceColumn: status_order
+
+	column projected_2030
+		dataType: double
+		lineageTag: 183f3502-c2e0-4069-909c-2a5cf75e1c7f
+		summarizeBy: none
+		sourceColumn: projected_2030
+
+	column year_target_reached
+		dataType: double
+		formatString: 0
+		lineageTag: 90698b24-81eb-42e8-bb3a-169a731611d2
+		summarizeBy: none
+		sourceColumn: year_target_reached
+
+	column when_target_reached
+		dataType: string
+		lineageTag: deca6bd6-e8e0-4578-bbea-1d8127dacdec
+		summarizeBy: none
+		sourceColumn: when_target_reached
+
+	column crisis_in_period
+		dataType: boolean
+		lineageTag: bae97701-3f0b-42f6-8666-3612952580a2
+		summarizeBy: none
+		sourceColumn: crisis_in_period
+
+	column births_latest
+		dataType: double
+		lineageTag: a83dd03b-bd2a-47d0-9e8e-48d6a46b8187
+		summarizeBy: none
+		sourceColumn: births_latest
+
+	column excess_deaths_vs_target
+		dataType: double
+		lineageTag: 0bfec0a1-596a-4812-bfad-ed2844e6ffd5
+		summarizeBy: none
+		sourceColumn: excess_deaths_vs_target
+
+	column above_secondary
+		dataType: boolean
+		lineageTag: a81ee87e-de0b-4e46-a13b-f554887c03ab
+		summarizeBy: none
+		sourceColumn: above_secondary
+
+	partition progress = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolder & "progress.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					Typed = Table.TransformColumnTypes(Promoted, {{"area_code", type text}, {"indicator_code", type text}, {"base_year", Int64.Type}, {"base_value", type number}, {"latest_year", Int64.Type}, {"latest_value", type number}, {"latest_lower", type number}, {"latest_upper", type number}, {"target", Int64.Type}, {"gap_to_target", type number}, {"arr_achieved", type number}, {"arr_required", type number}, {"status", type text}, {"status_order", Int64.Type}, {"projected_2030", type number}, {"year_target_reached", type number}, {"when_target_reached", type text}, {"crisis_in_period", type logical}, {"births_latest", type number}, {"excess_deaths_vs_target", type number}, {"above_secondary", type logical}}, "en-US")
+				in
+					Typed
+

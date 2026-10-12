@@ -1,0 +1,142 @@
+table estimates
+	lineageTag: d1f13879-344b-4228-bf46-49d1feb10e2d
+
+	measure Estimate = IF ( HASONEVALUE ( indicators[indicator_code] ) && HASONEVALUE ( areas[area_code] ), SUM ( estimates[value] ) )
+		formatString: #,0.0
+		displayFolder: Values
+		lineageTag: e0ecf742-5a90-4a71-8a38-b5f5c8928355
+
+	measure 'Lower Bound' = IF ( HASONEVALUE ( indicators[indicator_code] ) && HASONEVALUE ( areas[area_code] ), SUM ( estimates[lower] ) )
+		formatString: #,0.0
+		displayFolder: Values
+		lineageTag: cd265c04-6cc8-4ec1-94c5-d295d4c95edf
+
+	measure 'Upper Bound' = IF ( HASONEVALUE ( indicators[indicator_code] ) && HASONEVALUE ( areas[area_code] ), SUM ( estimates[upper] ) )
+		formatString: #,0.0
+		displayFolder: Values
+		lineageTag: 3a91cf35-8a93-4b9c-9d9b-509fab319a31
+
+	measure 'Latest Year' = MAX ( indicators[latest_year] )
+		formatString: 0
+		displayFolder: Values
+		lineageTag: beb94c3a-29e0-46e6-87fa-6ac9ebbda66b
+
+	measure 'Latest Value' = VAR ly = MAX ( indicators[latest_year] ) RETURN CALCULATE ( [Estimate], REMOVEFILTERS ( years ), years[year] = ly )
+		formatString: #,0.0
+		displayFolder: Values
+		lineageTag: c5b98b58-4da3-4904-8810-372d9302a5a7
+
+	measure 'SDG Target' = IF ( HASONEVALUE ( indicators[indicator_code] ), MAX ( indicators[sdg_target] ) )
+		formatString: #,0
+		displayFolder: Values
+		lineageTag: cf02e757-1897-4dbe-9aea-e58c25c3cade
+
+	measure 'Profile Title' = SELECTEDVALUE ( areas[area_name], "Right-click a country on any page, then Drill through" )
+		displayFolder: Labels
+		lineageTag: dabece31-c240-4597-9326-0d91e46af4fd
+
+	measure 'Profile Subtitle' = IF ( HASONEVALUE ( areas[area_code] ), SELECTEDVALUE ( areas[wb_region] ) & " · " & SELECTEDVALUE ( areas[income_group] ) & " · " & FORMAT ( [Selected Area Deaths Share], "0.0%" ) & " of the world's under-5 deaths in " & FORMAT ( CALCULATE ( MAX ( indicators[latest_year] ), REMOVEFILTERS ( indicators ), indicators[indicator_code] = "CME_TMY0T4" ), "0" ) )
+		displayFolder: Labels
+		lineageTag: c83c2878-e4a9-465a-8327-9086d17a346c
+
+	measure 'Indicator Title' = SELECTEDVALUE ( indicators[indicator], "Select an indicator" ) & ", " & SELECTEDVALUE ( indicators[unit] )
+		displayFolder: Labels
+		lineageTag: 2689e89b-c89e-483a-a53d-aeaaa07a866e
+
+	measure 'Target Label' = SELECTEDVALUE ( indicators[target_label] )
+		displayFolder: Labels
+		lineageTag: 32ca7f9b-f137-4a26-893b-55a6fa2f4660
+
+	measure 'World Under-5 Deaths' = CALCULATE ( [Latest Value], REMOVEFILTERS ( areas ), REMOVEFILTERS ( indicators ), areas[area_code] = "WORLD", indicators[indicator_code] = "CME_TMY0T4" )
+		formatString: #,0
+		displayFolder: Headlines
+		lineageTag: 8d31a227-001b-484e-840f-aa0bb53e64ed
+
+	measure 'World Neonatal Deaths' = CALCULATE ( [Latest Value], REMOVEFILTERS ( areas ), REMOVEFILTERS ( indicators ), areas[area_code] = "WORLD", indicators[indicator_code] = "CME_TMM0" )
+		formatString: #,0
+		displayFolder: Headlines
+		lineageTag: e3be38e1-9ccc-436f-9992-5a055e15221a
+
+	measure 'World Under-5 Rate' = CALCULATE ( [Latest Value], REMOVEFILTERS ( areas ), REMOVEFILTERS ( indicators ), areas[area_code] = "WORLD", indicators[indicator_code] = "CME_MRY0T4" )
+		formatString: #,0.0
+		displayFolder: Headlines
+		lineageTag: edcdff95-b698-4237-ac25-1c470d82d4bc
+
+	measure 'World Under-5 Rate 1990' = CALCULATE ( [Estimate], REMOVEFILTERS ( areas ), REMOVEFILTERS ( indicators ), areas[area_code] = "WORLD", indicators[indicator_code] = "CME_MRY0T4", REMOVEFILTERS ( years ), years[year] = 1990 )
+		formatString: #,0.0
+		displayFolder: Headlines
+		lineageTag: 036037ec-9cfe-4f7d-9a50-541a72ce00d4
+
+	measure 'World Under-5 Rate Change Since 1990' = DIVIDE ( [World Under-5 Rate] - [World Under-5 Rate 1990], [World Under-5 Rate 1990] )
+		formatString: +0%;-0%;0%
+		displayFolder: Headlines
+		lineageTag: 71299269-033e-4fc7-8fd3-75d72fccfcb7
+
+	measure 'Nigeria Under-5 Deaths' = CALCULATE ( [Latest Value], REMOVEFILTERS ( areas ), REMOVEFILTERS ( indicators ), areas[area_code] = "NGA", indicators[indicator_code] = "CME_TMY0T4" )
+		formatString: #,0
+		displayFolder: Headlines
+		lineageTag: 36add53a-dc57-411f-ab1c-1fa8ef63f266
+
+	measure 'Nigeria Share of World Under-5 Deaths' = DIVIDE ( [Nigeria Under-5 Deaths], [World Under-5 Deaths] )
+		formatString: 0%
+		displayFolder: Headlines
+		lineageTag: c8880c4c-1642-4757-8006-5c59d3340c97
+
+	measure 'Selected Area Deaths Share' = DIVIDE ( CALCULATE ( [Latest Value], REMOVEFILTERS ( indicators ), indicators[indicator_code] = "CME_TMY0T4" ), [World Under-5 Deaths] )
+		formatString: 0.0%
+		displayFolder: Headlines
+		lineageTag: 791daa5c-39ff-49df-9a99-7ac876711bbd
+
+	column area_code
+		dataType: string
+		isHidden
+		lineageTag: 8045b617-0452-4d1c-bdf6-2208dd3c1364
+		summarizeBy: none
+		sourceColumn: area_code
+
+	column indicator_code
+		dataType: string
+		isHidden
+		lineageTag: a48ec833-c890-43e2-953d-f8d40226a946
+		summarizeBy: none
+		sourceColumn: indicator_code
+
+	column year
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 2cdba802-0b51-449a-9650-aa916698fd25
+		summarizeBy: none
+		sourceColumn: year
+
+	column value
+		dataType: double
+		formatString: #,0.0
+		lineageTag: 9e323bd4-f3eb-48a8-91c6-692ffdc43651
+		summarizeBy: none
+		sourceColumn: value
+
+	column lower
+		dataType: double
+		formatString: #,0.0
+		lineageTag: f2a1f32f-a5f2-400d-b9d4-5fa959cd7488
+		summarizeBy: none
+		sourceColumn: lower
+
+	column upper
+		dataType: double
+		formatString: #,0.0
+		lineageTag: e7839634-95e3-40f3-99d7-d76f575684d7
+		summarizeBy: none
+		sourceColumn: upper
+
+	partition estimates = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolder & "estimates.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					Typed = Table.TransformColumnTypes(Promoted, {{"area_code", type text}, {"indicator_code", type text}, {"year", Int64.Type}, {"value", type number}, {"lower", type number}, {"upper", type number}}, "en-US")
+				in
+					Typed
+

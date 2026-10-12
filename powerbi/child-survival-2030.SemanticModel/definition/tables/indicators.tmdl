@@ -1,0 +1,82 @@
+table indicators
+	lineageTag: 2c2b30d0-95c8-4b07-9213-1db046e57f39
+
+	column indicator_code
+		dataType: string
+		lineageTag: 65476142-7b99-4571-99ab-045604c882d9
+		summarizeBy: none
+		sourceColumn: indicator_code
+
+	column indicator
+		dataType: string
+		lineageTag: 9d6dd8cb-2a8d-441d-8a1e-9e2ae9a10a8a
+		summarizeBy: none
+		sourceColumn: indicator
+		sortByColumn: sort_order
+
+	column unit
+		dataType: string
+		lineageTag: 9d9da26e-3990-4722-aeef-6e5f76ae3280
+		summarizeBy: none
+		sourceColumn: unit
+
+	column per
+		dataType: int64
+		lineageTag: 49b8ae22-8105-414d-bcc3-3140791bcab8
+		summarizeBy: none
+		sourceColumn: per
+
+	column sdg_target
+		dataType: double
+		lineageTag: e3fcb193-37ab-42ab-9022-27520eccb205
+		summarizeBy: none
+		sourceColumn: sdg_target
+
+	column target_label
+		dataType: string
+		lineageTag: 4d780c7a-b554-4b01-99ec-47871aa7c285
+		summarizeBy: none
+		sourceColumn: target_label
+
+	column secondary_threshold
+		dataType: double
+		lineageTag: 24990a45-ef08-4be7-8a77-c3e8bcefa18e
+		summarizeBy: none
+		sourceColumn: secondary_threshold
+
+	column sort_order
+		dataType: int64
+		isHidden
+		lineageTag: 0468277c-3b8b-46d0-9a26-6dbfea1ec29b
+		summarizeBy: none
+		sourceColumn: sort_order
+
+	column has_target
+		dataType: boolean
+		lineageTag: d8ee8b8a-8a8b-433f-b4b9-b0dc7e0c8638
+		summarizeBy: none
+		sourceColumn: has_target
+
+	column latest_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 655fb96f-4748-4197-963a-9378e7b00a13
+		summarizeBy: none
+		sourceColumn: latest_year
+
+	column has_uncertainty
+		dataType: boolean
+		lineageTag: 5e95445c-81c7-43e8-99c8-df55640a2748
+		summarizeBy: none
+		sourceColumn: has_uncertainty
+
+	partition indicators = m
+		mode: import
+		source =
+				let
+					Source = Csv.Document(File.Contents(DataFolder & "indicators.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+					Promoted = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+					Typed = Table.TransformColumnTypes(Promoted, {{"indicator_code", type text}, {"indicator", type text}, {"unit", type text}, {"per", Int64.Type}, {"sdg_target", type number}, {"target_label", type text}, {"secondary_threshold", type number}, {"sort_order", Int64.Type}, {"has_target", type logical}, {"latest_year", Int64.Type}, {"has_uncertainty", type logical}}, "en-US")
+				in
+					Typed
+

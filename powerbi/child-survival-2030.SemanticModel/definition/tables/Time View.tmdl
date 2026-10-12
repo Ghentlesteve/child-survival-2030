@@ -1,0 +1,39 @@
+table 'Time View'
+	lineageTag: 4ce4a96f-e87d-4da5-b30b-dd70a543b030
+
+	calculationGroup
+		precedence: 1
+
+		calculationItem 1990 = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( years ), years[year] = 1990 )
+
+		calculationItem 2015 = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( years ), years[year] = 2015 )
+
+		calculationItem Latest = VAR ly = MAX ( indicators[latest_year] ) RETURN CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( years ), years[year] = ly )
+
+		calculationItem 'Change since 1990' = VAR ly = MAX ( indicators[latest_year] ) VAR a = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( years ), years[year] = 1990 ) VAR b = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( years ), years[year] = ly ) RETURN DIVIDE ( b - a, a )
+
+			formatStringDefinition = "+0%;-0%;0%"
+
+		calculationItem 'Change since 2015' = VAR ly = MAX ( indicators[latest_year] ) VAR a = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( years ), years[year] = 2015 ) VAR b = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( years ), years[year] = ly ) RETURN DIVIDE ( b - a, a )
+
+			formatStringDefinition = "+0%;-0%;0%"
+
+		calculationItem 'Yearly reduction since 2015' = VAR ly = MAX ( indicators[latest_year] ) VAR a = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( years ), years[year] = 2015 ) VAR b = CALCULATE ( SELECTEDMEASURE (), REMOVEFILTERS ( years ), years[year] = ly ) RETURN IF ( a > 0 && b > 0, LN ( a / b ) / ( ly - 2015 ) )
+
+			formatStringDefinition = "0.0%"
+
+	column 'Time View'
+		dataType: string
+		lineageTag: 87d9329c-bcbe-4fc6-b2f7-abd58b4cb7e1
+		summarizeBy: none
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+	column Ordinal
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: b982667e-2bb3-417d-8c87-86187d9bfcc2
+		summarizeBy: sum
+		sourceColumn: Ordinal
+
